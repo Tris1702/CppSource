@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1579141169 source:d:\c++\eendcontest\main.cpp
+	<iostream>
+	<vector>
+	<bits/stdc++.h>
+

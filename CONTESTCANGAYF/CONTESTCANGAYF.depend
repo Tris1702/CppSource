@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1581860464 source:d:\c++\contestcangayf\main.cpp
+	<stdio.h>
+	<iostream>
+	<string.h>
+

@@ -1,0 +1,22 @@
+/*
+    So dien: X => So tien phai thanh toan: Y
+    _ 10 so dau tinh 3000d/so
+    _ 10 so tiep theo tinh 3500d/so
+    _ 20 so tiep theo tinh 5000d/so
+    _ Tu so thu 41 tinh gia 5500d/so
+*/
+/*
+    Nhap vao so a la thang thu a trong nam, in ra ten tieng anh cua thang do
+    1 -> January
+    2 -> February
+    3 -> March
+    4 -> April
+    5 -> May
+    6 -> June
+    7 -> July
+    8 -> August
+    9 -> September
+    10 -> October
+    11 -> December
+    12 -> November
+*/

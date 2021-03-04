@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1579139251 source:d:\c++\dendcontest\main.cpp
+	<iostream>
+	<vector>
+

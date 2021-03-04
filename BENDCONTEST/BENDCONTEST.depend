@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1579136734 source:d:\c++\bendcontest\main.cpp
+	<iostream>
+	<vector>
+
