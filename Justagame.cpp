@@ -36,7 +36,7 @@ void solve()
         cout<<"Lin\n";
         return;
     }
-    FORD(i,F.size(),0)
+    for(int i=F.size()-1; i>= 0; i--)
         if (n%F[i]==0)
         {
             if (n/F[i]==1) cout<<"Shin\n";

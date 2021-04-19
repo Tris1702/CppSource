@@ -1,61 +1,53 @@
 #include<bits/stdc++.h>
-#define F first
-#define S second
-#define mp make_pair
-#define FORT(i,a,b) for(int i=a;i<b;i++)
-#define FORD(i,a,b) for(int i=(int)a-1;i>=b;i--)
-
 using namespace std;
-typedef long long ll;
-
-struct point 
+ 
+// Return true if number's factorial contains
+// at least n trailing zero else false.
+bool check(int p, int n)
 {
-    ll x,y;
-};
-ll thang(point A, point B, point C)
-{
-    point K;//vector nAB
-    K.x=A.y-B.y;
-    K.y=B.x-A.x;
-    // K.x * (x-A.x) + K.y * (y-A.y) =0
-    return (K.x * (C.x-A.x) + K.y * (C.y-A.y));
-}
-void solve()
-{
-    // point A,B,C;
-    // cin>>A.x>>A.y>>B.x>>B.y>>C.x>>C.y;
-    int n;
-    while (1)
+    int temp = p, count = 0, f = 5;
+    while (f <= temp)
     {
-        map<point ,int> mA,mB,mD;
-        cin>>n;
-        if (n==0) return;
-        vector<point> a(n);
-        ll B=0,D=0;
-        FORT(i,0,n) cin>>a[i].x>>a[i].y;
-        ll res=0;
-        for(int i=0;i<n-1;i++)
-            for(int j=i+1;j<n;j++)
-            {
-                cout<<a[i].x<<' '<<a[i].y<<'|'<<a[j].x<<' '<<a[j].y<<endl;
-                B=0; 
-                D=0;
-                for(int k=0;k<n;k++)
-                {
-                    
-                    ll tmp= thang(a[i],a[j],a[k]);
-
-                    if (tmp<0) B++;
-                    else 
-                        if (tmp>0) D++;
-                }
-                res+=B*D;
-                
-            }
-        cout<<res/2<<endl;
+        count += temp/f;
+        f = f*5;
     }
+    return (count >= n);
 }
+ 
+// Return smallest number whose factorial
+// contains at least n trailing zeroes
+int findNum(int n)
+{
+    // If n equal to 1, return 5.
+    // since 5! = 120.
+    if (n==1)
+        return 5;
+ 
+    // Initalising low and high for binary
+    // search.
+    int low = 0;
+    int high = 5*n;
+ 
+    // Binary Search.
+    while (low <high)
+    {
+        int mid = (low + high) >> 1;
+ 
+        // Checking if mid's factorial contains
+        // n trailing zeroes.
+        if (check(mid, n))
+            high = mid;
+        else
+            low = mid+1;
+    }
+ 
+    return low;
+}
+ 
+// driver code
 int main()
 {
-    solve();
+    int n = 5;
+    cout << findNum(n) << endl;
+    return 0;
 }

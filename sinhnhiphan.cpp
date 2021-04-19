@@ -6,7 +6,7 @@ void sinh(int spt,string s)
 {
     if (spt>n)
     {
-        cout<<s<<endl;
+        //cout<<s<<endl;
         return;
     }
     for(char i='0';i<='1';i++)
@@ -14,6 +14,8 @@ void sinh(int spt,string s)
         sinh(spt+1,s+i);
     }
 }
+    // sinh(1,"");
+
 int main()
 {
     cin>>n;

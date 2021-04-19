@@ -30,9 +30,9 @@ void Reset()
     pre.clear();
     tree.clear();
     pos.clear();
-    pos.resize(n+1);
-    pre.resize(n+1);
-    tree.resize(4*n,0);
+    pos.resize(n+5);
+    pre.resize(n+5);
+    tree.resize(4*n+5,0);
     vt=0;
 }
 bool cmp(int a,int b)

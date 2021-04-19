@@ -10,7 +10,7 @@ void solve()
 {
     int n,m;
     cin>>n>>m;
-    int a[n][m]={};
+    vector<vector<int> > a(n, vector<int> (m));
     FORT(i,0,n)
         FORT(j,0,m) cin>>a[i][j];
     FORT(j,0,m)

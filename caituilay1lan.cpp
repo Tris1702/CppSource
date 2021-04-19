@@ -31,7 +31,7 @@ void solve()
 int main()
 {
     int T=1;
-    cin>>T;
+    // cin>>T;
     FORT(t,0,T) solve();
     return 0;
 }

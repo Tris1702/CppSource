@@ -73,6 +73,11 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "string.h": "c",
+        "C_Cpp.errorSquiggles": "Enable",
+        "C_Cpp.intelliSenseEngine": "Tag Parser",
+        "C_Cpp.loggingLevel": "Information",
+        "C_Cpp.updateChannel": "Insiders"
     }
 }

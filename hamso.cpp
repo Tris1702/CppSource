@@ -19,7 +19,8 @@ void solve()
     vector<bool> dd(2020,0);
     FORT(i,1,n+1) cin>>a[i];
     sort(a.begin()+1,a.end());
-    FORT(i,1,n+1) 
+    
+    for(int i = 1; i <=n; i++)
     {
         if (a[i]>mod) a[i]%=mod;
         if (dd[a[i]])

@@ -9,14 +9,14 @@ using namespace std;
 vector<long long> F;
 void prepare()
 {
-    long long lim=1;
+    long long lim=1, tmp;
     F.push_back(1);
-    while (lim<=1000000)
+    do
     {
-        long long tmp=lim*lim*lim;
+        tmp=lim*lim*lim;
         F.push_back(tmp);
         lim++;
-    }
+    } while (tmp<=1e6);
 }
 bool change(long long a,long long b)
 {
