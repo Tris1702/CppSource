@@ -11,20 +11,21 @@ pair<int,int> st, fn;
 vector<vector<int> > a;
 vector<vector<bool> > dd;
 int n, m;
-int res;
+bool Yes;
 void init()
 {
     a.clear();
     a.resize(n+1, vector<int> (m+1));
     dd.clear();
     dd.resize(n+1, vector<bool> (m+1, 0));
-    res = 1e9;
+    Yes = 0;
 }
 void dfs(pair<int,int> u, int pre, int turn)
 {
+    if (Yes) return;
     if (u == fn)
     {
-        res = min(res, turn);
+        Yes = 1;
         return;
     }
     for(int i = 0; i < 4; i++)
@@ -32,8 +33,9 @@ void dfs(pair<int,int> u, int pre, int turn)
         pair<int,int> v = mp(u.F+b[i].F, u.S+b[i].S);
         if (v.F >0 && v.F <=n && v.S >0 && v.S <= m && dd[v.F][v.S] == 0 && a[v.F][v.S])
         {
+            if (pre != -1 && pre != i && turn == 0) continue;
             dd[v.F][v.S] = 1;
-            if (pre != -1 && pre != i) dfs(v, i, turn+1);
+            if (pre != -1 && pre != i) dfs(v, i, turn-1);
             else dfs(v, i, turn);
             dd[v.F][v.S] = 0;
         }
@@ -41,8 +43,7 @@ void dfs(pair<int,int> u, int pre, int turn)
 }
 void solve()
 {
-    cin >> n;
-    m = n;
+    cin >> n >> m;
     init();
     for(int i = 1; i <= n; i++)
     {
@@ -50,15 +51,16 @@ void solve()
         {
             char c;
             cin >> c;
-            if (c == 'X') a[i][j] = 0;
+            if (c == '*') a[i][j] = 0;
             else a[i][j] = 1;
+            if (c == 'S') st = mp(i,j);
+            if (c == 'T') fn = mp(i,j);
         }
     }
-    cin >> st.F >> st.S >> fn.F >> fn.S;
-    st.F++; st.S++; fn.F++;fn.S++;
     dd[st.F][st.S] = 1;
-    dfs(st, -1, 0);
-    cout << res+1 << endl;
+    dfs(st, -1, 2);
+    if (Yes) cout << "YES\n";
+    else cout << "NO\n";
 }
 int main()
 {

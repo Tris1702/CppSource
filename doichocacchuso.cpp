@@ -1,47 +1,47 @@
 #include<bits/stdc++.h>
-#define FORT(i,a,b) for(int i=a;i<b;i++)
-#define FORD(i,a,b) for(int i=a-1;i>=b;i--)
+
 #define mp make_pair
 #define F first
 #define S second
-
 using namespace std;
-vector<int> f;
+
+typedef long long ll;
+
+void prepare()
+{
+
+}
+
+void init()
+{
+
+}
+
 void solve()
 {
     int k;
     string s;
-    f.clear();
-    cin>>k>>s;
-    int d=0,vt=d;
-    char c;
-    while (k)
+    cin >> k >> s;
+    while (k > 0)
     {
-        c='0'-1;
-        if (d==s.length()) break;
-        FORT(i,d+1,s.length())
+        int d = 0, c = s.length()-1, tmp = c;
+        while (d < c && s[d+1] <= s[d]) d++;
+        if (d == c) break;
+        while (c > d)
         {
-            if (s[i]>=c)
-            {
-                c=s[i];
-                vt=i;
-            }
+            if (s[c] > s[tmp]) tmp = c;
+            c--;
         }
-        if (c>s[d]) 
-        {
-            swap(s[d],s[vt]);
-            k--;
-            d++;
-        }
-        else d++;
+        d = 0;
+        while (d < tmp && s[d]>=s[tmp]) d++;
+        k--;
+        swap(s[d], s[tmp]);
     }
-    while (s[0]=='0'&&s.length()>1) s.erase(0,1);
-    cout<<s<<endl;
+    cout << s<< endl;
 }
 int main()
 {
-    int T=1;
-    cin>>T;
-    FORT(t,0,T) solve();
-    return 0;
+    int t = 1;
+    cin >> t;
+    while (t--) solve();
 }
