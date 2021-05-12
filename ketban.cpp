@@ -8,13 +8,11 @@
 using namespace std;
 int V,E,st,fn;
 vector<bool> dd;
-// vector<int> trace;
 vector<vector<int> > x;
 int dem, res;
 void init()
 {
     dd.clear();
-    // trace.clear();
     x.clear();
 
     dd.resize(V+1,0);

@@ -6,10 +6,6 @@
 #define FORD(i,a,b) for(int i=(int)a-1;i>=b;i--)
 
 using namespace std;
-void prepare()
-{
-
-}
 void solve()
 {
 	int n, k,res = 0;
