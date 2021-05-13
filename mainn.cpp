@@ -1,44 +1,34 @@
 #include<bits/stdc++.h>
-#define FORT(i,a,b) for(int i=a;i<b;i++)
+
+#define mp make_pair
+#define F first
+#define S second
 using namespace std;
-int n;
-bool dd[500]={};
-vector<string> A, B;
-void sinh1(int spt,string so)
+
+typedef long long ll;
+
+int a[]={1, 3, 5, 11, 11, 11, 11, 12};
+int LB(int l, int r, int x)
 {
-    if (spt>n)
+    if (x > a[r]) return r+1;
+    while (r > l)
     {
-        A.push_back(so);
-        return;
+        int mid = (l+r)/2;
+        if (a[mid] < x)
+        {
+            l = mid+1;
+        }
+        else
+            if (a[mid] > x) r = mid;
+            else
+            {
+                while (a[mid] == x) mid --;
+                return mid + 1;
+            }
     }
-    for(char i='A';i<'A'+n;i++)
-        if (!dd[i])
-    {
-        dd[i]=1;
-        sinh1(spt+1,so+i);
-        dd[i]=0;
-    }
-}
-void sinh2(int spt,string so)
-{
-    if (spt>n)
-    {
-        B.push_back(so);
-        return;
-    }
-    for(int i=1;i<=n;i++)
-    {
-        sinh2(spt+1,so+to_string(i));
-    }
+    return r;
 }
 int main()
 {
-    cin>>n;
-    sinh1(1,"");
-    sinh2(1,"");
-    for(string i: A)
-    {
-        for(string j: B) cout << i<<j<<endl;
-    }
-    return 0;
+    cout << LB(0, 7, 13);
 }

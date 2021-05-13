@@ -7,23 +7,66 @@ using namespace std;
 
 typedef long long ll;
 
-void prepare()
+struct dat
 {
-
+    string conf;
+    int a;
+};
+vector<dat> way;
+vector<int> a;
+int sum = 0;
+dat tinh(string s)
+{
+    dat x = {s, 0};
+    for(char c: x.conf)
+        if (c == '1') x.a++;
+    return x;
+}
+void sinh(int spt,string s, int n)
+{
+    if (spt>n)
+    {
+        way.push_back(tinh(s));
+        return;
+    }
+    for(char i = '0'; i <= '1'; i++)
+    {
+        sinh(spt+1, s+i, n);
+    }
 }
 
-void init()
+int BS(int l, int r, dat x)
 {
-
+    if (l > r) return -1;
+    int mid = (l+r) / 2;
+    if (way[mid].a + x.a == sum*2 - (way[mid].a + x.a)) return mid;
+    if (way[mid].a + x.a > sum*2 - (way[mid].a + x.a)) return BS(l, mid -1, x);
+    return BS(mid + 1, r, x);
 }
-
-void print()
+bool cmp(dat a, dat b)
 {
-    cout << 1;
+    return a.a < b.a;
+}
+void solve()
+{
+    int n;
+    cin >> n;
+    a.resize(n);
+    for(int i = 0; i <n; i++) 
+    {
+        cin >> a[i];
+        sum += a[i];
+    }
+    sinh(1, "", n/2);
+    sort(way.begin(), way.end(), cmp);
+    if (n%2 == 0)
+    {
+        
+    }
 }
 int main()
 {
     int t = 1;
     // cin >> t;
-    while (t--) print();
+    while (t--) solve();
 }
