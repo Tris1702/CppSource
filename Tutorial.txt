@@ -1,0 +1,17 @@
+Cảm ơn bạn đã ghé qua đây <3
+
+_ Hãy xem code với mục đích THAM KHẢO
+
+_ Ở đây tập hợp rất nhiều code, tôi chưa có thời gian phân loại, nên:
+    + Nếu bạn muốn tìm code trên trang SPOJ PTIT ( https://www.spoj.com/PTIT/ ) hãy tra theo mã bài ví dụ "BCCOW"
+    + Nếu bạn muốn tìm code của môn CTDL và GT, hãy tra theo tên bài (không viết dấu) ví dụ: "biendoisonguyento"
+    + Nếu bạn muốn tìm code của môn ngôn ngữ lập trình C++, hãy tra theo cả tên lẫn mã.
+    + Nếu code nào tôi có note là chưa AC, thì hãy bỏ qua, tôi chưa fix được lỗi :<
+    
+_ Do đôi khi tôi đặt sai tên nên hãy tra theo từng đoạn một (ví dụ bài "biendoisonguyento", hãy tra "biendoi")
+
+
+Nếu bạn thấy code của tôi có ích, hãy để lại 1 sao nhé :">
+
+
+Nếu bạn có gì muốn trao đổi về code hãy liên hệ qua mail: phuonghoand2001@gmail.com
