@@ -1,67 +1,63 @@
 #include<bits/stdc++.h>
-#define FORT(i,a,b) for(int i=a;i<b;i++)
-#define FORD(i,a,b) for(int i=a-1;i>=b;i--)
+
 #define mp make_pair
 #define F first
 #define S second
-
 using namespace std;
-vector<vector<int> > x;
-vector<int> dd;
 
-void dfs(int u,int dem)
+typedef long long ll;
+int V, E;
+vector<vector<int> > x;
+bool bfs(int st, int fn)
 {
-    FORT(i,0,x[u].size())
+    queue<int> q;
+    q.push(st);
+    bool dd[V+1]={};
+    dd[st] = 1;
+    while (!q.empty())
     {
-        int v=x[u][i];
-        if (dd[v]==0)
+        int u = q.front();
+        q.pop();
+        if (u == fn) return 1;
+        for(int v: x[u])
         {
-            dd[v]=dem;
-            dfs(v,dem);
+            if (dd[v]) continue;
+            q.push(v);
+            dd[v] = 1;
         }
-    }
+    }    
+    return 0;
 }
-void Reset(int V)
+void init()
 {
     x.clear();
-    dd.clear();
-    x.resize(V+1);
-    dd.resize(V+1,0);
+    x.resize(V+1); 
 }
+
 void solve()
 {
-    int E,V;
-    cin>>V>>E;
-    Reset(V);
-    FORT(i,0,E)
+    cin >> V >> E;
+    init();
+    for(int i = 0; i < E; i++)
     {
-        int a,b;
-        cin>>a>>b;
-        x[a].push_back(b);
-        x[b].push_back(a);
+        int u, v;
+        cin >> u >> v;
+        x[u].push_back(v);
+        x[v].push_back(u);
     }
-    int dem=1;
-    FORT(i,1,V+1)
-        if (dd[i]==0)
-        {
-            dd[i]=dem;
-            dfs(i,dem);
-            dem++;
-        }
     int Q;
-    cin>>Q;
-    FORT(q,0,Q)
+    cin >> Q;
+    for(int q = 0; q < Q; q++)
     {
-        int u,v;
-        cin>>u>>v;
-        if (dd[u]==dd[v]) cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+        int u, v;
+        cin >> u >> v;
+        if (bfs(u,v)) cout << "YES\n";
+        else cout << "NO\n";
     }
 }
 int main()
 {
-    int T=1;
-    cin>>T;
-    FORT(t,0,T) solve();
-    return 0;
+    int t = 1;
+    cin >> t;
+    while (t--) solve();
 }
