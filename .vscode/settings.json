@@ -78,6 +78,6 @@
         "C_Cpp.errorSquiggles": "Enable",
         "C_Cpp.intelliSenseEngine": "Tag Parser",
         "C_Cpp.loggingLevel": "Information",
-        "C_Cpp.updateChannel": "Insiders"
+        "C_Cpp.updateChannel": "Insiders",
     }
 }
