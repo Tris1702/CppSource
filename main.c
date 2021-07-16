@@ -1,34 +1,39 @@
 #include<stdio.h>
-#include<string.h>
-#include<stdbool.h>
-#include<math.h>
-bool dd[1000006]={};
-int prime[100005]={};
-void sang()
-{
-    for(long long i = 2; i <= 1e6; i++)
-        if (ifor(long long j = i*i; j <= 1e6; j+=i)
-        {}
-}
-int main()
-{
-    sang();
-	int N, sum = 0;
-    scanf("%d",&N);
-    for(int n = 0; n < N; n++)
+
+int main(){
+    //Nhap 1 mang 2 chieu gom h hang, c cot, in ra hang co tong lon nhat
+    /*
+    VD:
+    Input:
+    3 4
+    1 2 3 4
+    2 3 1 5
+    6 2 0 1
+    
+
+    Output:
+    1
+    */
+
+    int a[1000][1000]={};
+    int h, c, res = -1e9, hang = 0;
+    scanf("%d %d", &h, &c);
+
+    for(int i = 0; i < h; i++)
     {
-        int so;
-        scanf("%d", &so);
-        int dem =0;
-        for(int i = 2; i <=sqrt(so); i++)
-            while (so % i == 0)
-            {
-                dem += i;
-                so/=i;
-            }
-        if(so > 1) dem += so;
-        sum += dem;
+        for(int j = 0; j < c; j++)
+            scanf("%d", &a[i][j]);
     }
-    printf("%d", sum);
-	return 0;
+
+    for(int i = 0; i < h; i++)
+    {
+        int tong = 0;
+        for(int j = 0; j < c; j++) tong = tong + a[i][j];
+        if (tong > res)
+        {
+            res = tong;
+            hang = i;
+        }
+    }
+    printf("%d", hang);
 }

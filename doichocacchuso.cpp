@@ -7,15 +7,6 @@ using namespace std;
 
 typedef long long ll;
 
-void prepare()
-{
-
-}
-
-void init()
-{
-
-}
 
 void solve()
 {
